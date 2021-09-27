@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stages('Build') {
             steps {
                 echo 'Building..'
             }
@@ -18,4 +18,12 @@ pipeline {
             }
         }
     }
+    post {
+    failure {
+        mail to: 'namisur@yahoo.com',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
+    }
+}
+
 }

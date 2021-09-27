@@ -1,6 +1,14 @@
-stage('Build') {
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
             steps {
-                sh 'echo "I am on main branch"'
-                
+                sh 'echo "I am in main branch"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
+    }
+}

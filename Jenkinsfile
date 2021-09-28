@@ -36,9 +36,10 @@ pipeline {
             echo 'Things were different before...'
         }
     failure {
-        mail to: 'namisur@yahoo.com',
+        echo 'Build failed.'
+        /* mail to: 'namisur@yahoo.com',
              subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-             body: "Something is wrong with ${env.BUILD_URL}"
+             body: "Something is wrong with ${env.BUILD_URL}" */
     }
 }
 

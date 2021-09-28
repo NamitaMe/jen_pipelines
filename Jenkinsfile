@@ -19,6 +19,20 @@ pipeline {
         }
     }
     post {
+        always {
+            echo 'One way or another, I have finished'
+            deleteDir() /* clean up our workspace */
+        }
+        success {
+            echo 'I succeeded!'
+        }
+        unstable {
+            echo 'I am unstable :/'
+        }
+        
+        changed {
+            echo 'Things were different before...'
+        }
     failure {
         mail to: 'namisur@yahoo.com',
              subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",

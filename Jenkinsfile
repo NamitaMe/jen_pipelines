@@ -22,8 +22,8 @@ pipeline {
         always {
             //echo 'One way or another, I have finished'
             //deleteDir() /* clean up our workspace */
-            //archiveArtifacts artifacts: '**/*.jar', fingerprint: true
-            junit '**/build/test-reports/*.xml'
+            archiveArtifacts artifacts: '**/*.jar', fingerprint: true
+            //junit '**/test-reports/*.xml'
         }
         success {
             echo 'I succeeded!'

@@ -20,8 +20,9 @@ pipeline {
     }
     post {
         always {
-            echo 'One way or another, I have finished'
-            deleteDir() /* clean up our workspace */
+            //echo 'One way or another, I have finished'
+            //deleteDir() /* clean up our workspace */
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
         }
         success {
             echo 'I succeeded!'

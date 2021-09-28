@@ -22,7 +22,7 @@ pipeline {
         always {
             //echo 'One way or another, I have finished'
             //deleteDir() /* clean up our workspace */
-            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            archiveArtifacts artifacts: '*.jar', fingerprint: true
         }
         success {
             echo 'I succeeded!'
